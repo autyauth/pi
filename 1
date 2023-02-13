@@ -1,30 +1,30 @@
-  .data
-  @ Define all the strings and variables
-  .balign 4
-  get_num_1: .asciz ”Number 1 :\n”
-  .balign 4
-  get_num_2: .asciz ”Number 2 :\n”
-  @ printf and scanf use %d in decimal numbers
-  .balign 4
-  pattern: .asciz ”%d”
-  @ Declare and initialize variables: num_1 and num_2
-  .balign 4
-  num_1: .word 0
-  .balign 4
-  num_2: .word 0
-  @ Output message pattern
-  .balign 4
-  output: .asciz ”Resulf of %d + %d = %d\n”
-  @ Variables to backup link register
-  .balign 4
-  lr_bu: .word 0
-  .balign 4
-  lr_bu_2: .word 0
-  .text
+.data
+@ Define all the strings and variables
+.balign 4
+get_num_1: .asciz ”Number 1 :\n”
+.balign 4
+get_num_2: .asciz ”Number 2 :\n”
+@ printf and scanf use %d in decimal numbers
+.balign 4
+pattern: .asciz ”%d”
+@ Declare and initialize variables: num_1 and num_2
+.balign 4
+num_1: .word 0
+.balign 4
+num_2: .word 0
+@ Output message pattern
+.balign 4
+output: .asciz ”Resulf of %d + %d = %d\n”
+@ Variables to backup link register
+.balign 4
+lr_bu: .word 0
+.balign 4
+lr_bu_2: .word 0
+.text
 sum_func:
-    @ Save (Store) Link Register to lr_bu_2
-    LDR R2, addr_lr_bu_2
-  STR lr,[R2] @ Mem[addr_lr_bu_2] <- LR
+@ Save (Store) Link Register to lr_bu_2
+LDR R2, addr_lr_bu_2
+STR lr,[R2] @ Mem[addr_lr_bu_2] <- LR
 @ Sum values in R0 and R1 and return in R0
 ADD R0, R0, R1
 @ Load Link Register from back up 2
